@@ -44,7 +44,7 @@
             color: #d4af37;
         }
 
-        /* Hero Section & Arch Frame */
+        /* Hero Section & Professional Arch Frame */
         .hero-container {
             display: flex;
             flex-wrap: wrap;
@@ -82,7 +82,7 @@
             font-size: 0.8rem;
         }
 
-        /* Profile Arch Frame & Animated Tiger */
+        /* Profile Arch Box & Subtle Tiger Effect */
         .arch-frame {
             width: 280px;
             height: 380px;
@@ -100,31 +100,37 @@
             position: relative;
             z-index: 1;
         }
-        .tiger-animation-box {
+
+        /* Animated Tiger Badge Overlay */
+        .tiger-overlay {
             position: absolute;
-            bottom: -20px;
-            width: 100%;
-            text-align: center;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(17, 17, 17, 0.85);
+            border: 1px solid #d4af37;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
             z-index: 2;
-            pointer-events: none;
-            animation: riseTiger 3.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            animation: pulseTiger 2s infinite alternate;
         }
-        .tiger-icon {
-            font-size: 4.5rem;
-            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8));
-        }
-        @keyframes riseTiger {
+        @keyframes pulseTiger {
             0% {
-                transform: translateY(35px) scale(0.85);
-                opacity: 0.3;
+                transform: scale(0.95);
+                box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
             }
             100% {
-                transform: translateY(0px) scale(1.05);
-                opacity: 0.8;
+                transform: scale(1.08);
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
             }
         }
 
-        /* Container & Cards */
+        /* Main Container & Layout */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -201,22 +207,20 @@
         <div class="hero-text">
             <p style="color: #d4af37; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Welcome to my portfolio</p>
             <h1>Hello, I'm UTTOM CHANDRA ROY</h1>
-            <p>A university student passionate about computer science, technology, diplomacy, leadership, and global affairs[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</p>
+            <p>A university student passionate about computer science, technology, diplomacy, leadership, and global affairs[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</p>
             
             <div class="badge-container">
-                <div class="badge">🇧🇩 International Student[span_6](start_span)[span_6](end_span)</div>
-                <div class="badge">🇺🇳 Delegate of Belarus @ UMUN ECOSOC[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)</div>
-                <div class="badge">💻 BSCS @ UoPeople USA[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)</div>
-                <div class="badge">🎓 BCA @ Assam Down Town University[span_12](start_span)[span_12](end_span)</div>
+                <div class="badge">🇧🇩 International Student[span_2](start_span)[span_2](end_span)</div>
+                <div class="badge">🇺🇳 Delegate of Belarus @ UMUN ECOSOC[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)</div>
+                <div class="badge">💻 BSCS @ UoPeople USA[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)</div>
+                <div class="badge">🎓 BCA @ Assam Down Town University[span_8](start_span)[span_8](end_span)</div>
             </div>
         </div>
 
-        <!-- Arch Profile Frame -->
+        <!-- Arch Profile Frame with Profile Image -->
         <div class="arch-frame">
             <img src="profile.jpg" alt="Uttom Chandra Roy" class="profile-img">
-            <div class="tiger-animation-box">
-                <div class="tiger-icon">🐅</div>
-            </div>
+            <div class="tiger-overlay">🐅</div>
         </div>
     </section>
 
@@ -229,22 +233,22 @@
                 <div class="card">
                     <h3>Assam Down Town University</h3>
                     <p><strong>BCA (Bachelor of Computer Applications)</strong></p>
-                    <p style="color: #888; font-size: 0.8rem;">Guwahati, India | 2025 – 2028[span_13](start_span)[span_13](end_span)</p>
+                    <p style="color: #888; font-size: 0.8rem;">Guwahati, India | 2025 – 2028[span_9](start_span)[span_9](end_span)</p>
                 </div>
                 <div class="card">
                     <h3>University of the People</h3>
                     <p><strong>BSCS in Computer Science</strong></p>
-                    <p style="color: #888; font-size: 0.8rem;">USA | Online Degree[span_14](start_span)[span_14](end_span)</p>
+                    <p style="color: #888; font-size: 0.8rem;">USA | Online Degree[span_10](start_span)[span_10](end_span)</p>
                 </div>
                 <div class="card">
                     <h3>Dania College</h3>
                     <p><strong>HSC – Humanities</strong></p>
-                    <p style="color: #888; font-size: 0.8rem;">Dhaka, Bangladesh | Passed in 2023[span_15](start_span)[span_15](end_span)</p>
+                    <p style="color: #888; font-size: 0.8rem;">Dhaka, Bangladesh | Passed in 2023[span_11](start_span)[span_11](end_span)</p>
                 </div>
                 <div class="card">
                     <h3>Alokjhari High School</h3>
                     <p><strong>SSC – Science</strong></p>
-                    <p style="color: #888; font-size: 0.8rem;">Passed in 2021[span_16](start_span)[span_16](end_span)</p>
+                    <p style="color: #888; font-size: 0.8rem;">Passed in 2021[span_12](start_span)[span_12](end_span)</p>
                 </div>
             </div>
         </section>
@@ -290,33 +294,33 @@ ORDER BY id DESC;</code></pre>
             </div>
         </section>
 
-        <!-- Certificates & Model UN Section -->
+        <!-- Certificates & Diplomacy Section -->
         <section id="certificates">
             <h2 class="section-title">Certificates & Diplomacy</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Delegate of Belarus 🇧🇩</h3>
-                    <p><strong>ECOSOC - UMUN (Univario Model United Nations)</strong><br>Represented Belarus in multilateral economic and social debates[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span).</p>
+                    <p><strong>ECOSOC - UMUN (Univario Model United Nations)</strong><br>Represented Belarus in multilateral economic and social debates[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).</p>
                 </div>
                 <div class="card">
                     <h3>Rotary Youth Leadership Award (RYLA 2022)</h3>
-                    <p>Rotary Club of Dhaka Mid-Town - Completed leadership award program[span_20](start_span)[span_20](end_span).</p>
+                    <p>Rotary Club of Dhaka Mid-Town - Completed leadership award program[span_16](start_span)[span_16](end_span).</p>
                 </div>
                 <div class="card">
                     <h3>Leading with Character</h3>
-                    <p>The Oxford Character Project & Harvard - 30-day leadership journey[span_21](start_span)[span_21](end_span).</p>
+                    <p>The Oxford Character Project & Harvard - 30-day leadership journey[span_17](start_span)[span_17](end_span).</p>
                 </div>
                 <div class="card">
                     <h3>AI Tools & Claude Workshop</h3>
-                    <p>be10x - Hands-on training in AI tools and debugging[span_22](start_span)[span_22](end_span).</p>
+                    <p>be10x - Hands-on training in AI tools and debugging[span_18](start_span)[span_18](end_span).</p>
                 </div>
                 <div class="card">
                     <h3>Fundamentals of Cybersecurity I</h3>
-                    <p>Accenture (Learning to Earning) - Core principles course[span_23](start_span)[span_23](end_span).</p>
+                    <p>Accenture (Learning to Earning) - Core principles course[span_19](start_span)[span_19](end_span).</p>
                 </div>
                 <div class="card">
                     <h3>Viksit Bharat Young Leaders Dialogue</h3>
-                    <p>Ministry of Youth Affairs & Sports (MYBharat)[span_24](start_span)[span_24](end_span).</p>
+                    <p>Ministry of Youth Affairs & Sports (MYBharat)[span_20](start_span)[span_20](end_span).</p>
                 </div>
             </div>
         </section>
@@ -324,9 +328,9 @@ ORDER BY id DESC;</code></pre>
     </div>
 
     <footer>
-        <p>&copy; 2026 Uttom Chandra Roy. All Rights Reserved[span_25](start_span)[span_25](end_span).</p>
+        <p>&copy; 2026 Uttom Chandra Roy. All Rights Reserved[span_21](start_span)[span_21](end_span).</p>
     </footer>
 
 </body>
-                                 </html>
+    </html>
     
