@@ -3,215 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#030712">
-  <meta name="description" content="Uttom Chandra Roy — Computer Science student and aspiring developer.">
-  <title>Uttom Chandra Roy | Software & Web Developer</title>
-  
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono for Code -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <meta name="description" content="Uttom Chandra Roy - Computer Science student and aspiring web developer.">
+  <title>Uttom Chandra Roy | Portfolio</title>
   <style>
-    :root {
-      --bg: #030712;
-      --card-bg: rgba(17, 24, 39, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.25);
-      --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-      --code-bg: #0b1329;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 65%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #f1f5f9;
+      line-height: 1.7;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
-
-    /* Header */
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1000px, 90%); margin: auto; }
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(3, 7, 18, 0.75);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--card-border);
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(7,17,31,.95);
+      border-bottom: 1px solid #233247;
     }
-
     nav {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      min-height: 68px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; flex-wrap: wrap;
     }
-
-    .brand {
-      font-weight: 800;
-      font-size: 22px;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 24px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .navlinks a:hover {
-      color: var(--accent);
-      transition: color 0.3s ease;
-    }
-
-    /* Live Status Badge */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      color: #4ade80;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #22c55e;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-    }
-
-    /* Hero Section */
+    .brand { color: #38bdf8; font-size: 20px; font-weight: 800; }
+    .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+    .links a:hover { color: #38bdf8; }
     .hero {
-      padding: 80px 0 60px;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      align-items: center;
-      gap: 40px;
+      padding: 85px 0 65px; min-height: 390px;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: flex-start;
+      background: radial-gradient(ellipse at top right, #153453 0%, #07111f 60%);
     }
-
-    h1 {
-      font-size: clamp(38px, 5.5vw, 60px);
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: 18px;
+    .tag {
+      color: #7dd3fc; border: 1px solid #285675;
+      border-radius: 30px; padding: 5px 13px; font-size: 13px;
+      margin-bottom: 20px;
     }
-
-    h1 span {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    h1 { font-size: clamp(36px, 8vw, 64px); line-height: 1.12; margin-bottom: 20px; }
+    h1 span { color: #38bdf8; }
+    .intro { color: #bdc9d8; font-size: 18px; max-width: 620px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .button {
+      display: inline-block; padding: 11px 18px; border-radius: 9px;
+      border: 1px solid #38506a; font-weight: bold;
     }
-
-    .lead {
-      color: var(--text-muted);
-      font-size: 18px;
-      max-width: 580px;
+    .primary { background: #38bdf8; color: #07111f; border-color: #38bdf8; }
+    section { padding: 55px 0; }
+    h2 { font-size: 28px; margin-bottom: 20px; }
+    .muted { color: #bdc9d8; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card {
+      padding: 22px; border: 1px solid #26384d; border-radius: 14px;
+      background: #0e1b2c;
     }
-
-    .actions {
-      display: flex;
-      gap: 16px;
-      margin-top: 32px;
-      flex-wrap: wrap;
+    .card h3 { color: #7dd3fc; margin-bottom: 8px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      padding: 8px 13px; border-radius: 8px;
+      background: #102b42; border: 1px solid #234967; color: #bae6fd;
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      color: var(--text-main);
+    footer { border-top: 1px solid #26384d; padding: 25px 0; text-align: center; color: #9aabc0; }
+    @media (max-width: 500px) {
+      nav { padding: 12px 0; }
+      .links { gap: 12px; }
+      .hero { padding: 65px 0 50px; }
+      section { padding: 42px 0; }
     }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">Uttom.dev</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    .btn:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="tag">Computer Science Student · Aspiring Developer</div>
+        <h1>Hello, I'm<br><span>Uttom Chandra Roy.</span></h1>
+        <p class="intro">I am a university student passionate about technology, web development, learning new skills, and building connections around the world.</p>
+        <div class="buttons">
+          <a class="button primary" href="#projects">Explore My Work</a>
+          <a class="button" href="https://github.com/uttomchandraroy227-rgb" target="_blank" rel="noopener noreferrer">My GitHub ↗</a>
+        </div>
+      </div>
+    </section>
 
-    .btn.primary {
-      background: var(--gradient-accent);
-      color: #000;
-      border: none;
-      font-weight: 700;
-      box-shadow: 0 8px 25px var(--accent-glow);
-    }
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="card">
+          <p class="muted">I am Uttom Chandra Roy, a Computer Science student from Bangladesh studying in India. I am at the beginning of my developer journey and working to improve my technical, communication, and problem-solving skills.</p>
+          <p class="muted" style="margin-top:12px">My goal is to create useful digital projects, collaborate with people from different backgrounds, and grow as a developer and global citizen.</p>
+        </div>
+      </div>
+    </section>
 
-    .btn.primary:hover {
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
-    }
+    <section id="skills">
+      <div class="container">
+        <h2>Skills & Interests</h2>
+        <div class="skills">
+          <span class="skill">Computer Science</span>
+          <span class="skill">Learning Web Development</span>
+          <span class="skill">HTML & CSS Basics</span>
+          <span class="skill">Model United Nations</span>
+          <span class="skill">Communication</span>
+          <span class="skill">Global Networking</span>
+          <span class="skill">Teamwork</span>
+        </div>
+      </div>
+    </section>
 
-    /* Terminal Widget (Zuckerberg Style) */
-    .terminal-card {
-      background: var(--code-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      font-family: 'JetBrains Mono', monospace;
-    }
+    <section id="projects">
+      <div class="container">
+        <h2>My Projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Personal Portfolio</h3>
+            <p class="muted">My first personal website, built with HTML and CSS and published using GitHub Pages.</p>
+            <p style="margin-top:14px"><a style="color:#38bdf8" href="https://github.com/uttomchandraroy227-rgb/my-portfolio" target="_blank" rel="noopener noreferrer">View repository ↗</a></p>
+          </article>
+          <article class="card">
+            <h3>Learning Journey</h3>
+            <p class="muted">I am learning the fundamentals of programming and web development, one step at a time.</p>
+          </article>
+          <article class="card">
+            <h3>Future Projects</h3>
+            <p class="muted">I plan to build more projects as my coding skills and experience grow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    .terminal-header {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--card-border);
-    }
+    <section id="contact">
+      <div class="container">
+        <h2>Let's Connect</h2>
+        <div class="card">
+          <p class="muted">I'm open to learning, collaboration, and connecting with fellow students and developers.</p>
+          <div class="buttons">
+            <a class="button primary" href="https://github.com/uttomchandraroy227-rgb" target="_blank" rel="noopener noreferrer">Connect on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
-
-    .terminal-body {
-      padding: 20px;
-      font-size: 13
+  <footer>
+    <div class="container">© 2026 Uttom Chandra Roy · Built with HTML & CSS</div>
+  </footer>
+</body>
+</html>
