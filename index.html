@@ -1,277 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematic Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP and ScrollTrigger CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #f3f4f6; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Syne', sans-serif; }
-        .glow-effect { box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.2); }
-    /* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uttom Chandra Roy - Personal Portfolio</title>
+  <style>
+    /* Global Reset & Colors */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-body {
-  background-color: #0b0b0b;
-  color: #e5e5e5;
-  padding: 20px 8%;
-  overflow-x: hidden;
-}
+    body {
+      background-color: #0b0b0b;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 0 5%;
+      overflow-x: hidden;
+    }
 
-/* Navbar Styling */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.logo {
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  color: #cda863;
-  font-weight: 600;
-}
+    /* Navigation Bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #222;
+    }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
+    .logo {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #cda863;
+    }
 
-.nav-links a {
-  color: #a0a0a0;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.3s ease;
-}
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
 
-.nav-links a:hover {
-  color: #cda863;
-}
+    nav a {
+      font-size: 0.85rem;
+      color: #a0a0a0;
+      transition: color 0.3s;
+    }
 
-/* Hero Section Layout */
-.hero-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 80vh;
-  gap: 40px;
-}
+    nav a:hover {
+      color: #cda863;
+    }
 
-.hero-text {
-  max-width: 550px;
-}
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 70px 0;
+      min-height: 80vh;
+      gap: 40px;
+    }
 
-.tagline {
-  font-size: 0.75rem;
-  letter-spacing: 2.5px;
-  color: #cda863;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
+    .hero-text {
+      max-width: 600px;
+    }
 
-.title {
-  font-size: 3.5rem;
-  line-height: 1.1;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
+    .welcome-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(205, 168, 99, 0.1);
+      border: 1px solid #cda863;
+      border-radius: 20px;
+      color: #cda863;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
 
-.highlight {
-  color: #d1b168;
-}
+    .hero-text h1 {
+      font-size: 3.2rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
 
-.description {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #b0b0b0;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
+    .hero-text h1 span {
+      color: #cda863;
+    }
 
-/* Discover Button */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #cda863;
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .hero-text p {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(205, 168, 99, 0.4);
-}
+    .bio-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
 
-/* Arch Frame Image Styling */
-.hero-image-wrapper {
-  position: relative;
-}
+    .pill {
+      background: #141414;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      border: 1px solid #333;
+      color: #ccc;
+    }
 
-.arch-frame {
-  width: 280px;
-  height: 380px;
-  border-top-left-radius: 140px;
-  border-top-right-radius: 140px;
-  overflow: hidden;
-  border: 1.5px solid #cda863;
-  box-shadow: 0 0 25px rgba(205, 168, 99, 0.2);
-  transition: box-shadow 0.4s ease;
-}
+    /* Arch Image Frame */
+    .hero-image-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
 
-.arch-frame:hover {
-  box-shadow: 0 0 35px rgba(205, 168, 99, 0.4);
-}
+    .arch-frame {
+      width: 280px;
+      height: 380px;
+      border-top-left-radius: 140px;
+      border-top-right-radius: 140px;
+      overflow: hidden;
+      border: 1.5px solid #cda863;
+      box-shadow: 0 0 25px rgba(205, 168, 99, 0.2);
+    }
 
-.arch-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .arch-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-/* Keyframes Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Section Styles */
+    section {
+      padding: 60px 0;
+      border-top: 1px solid #1a1a1a;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    .section-title {
+      font-size: 1.8rem;
+      color: #cda863;
+      margin-bottom: 30px;
+    }
 
-/* Animation Classes & Delays */
-.animate-fade {
-  animation: fadeIn 1s ease forwards;
-}
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-.animate-up {
-  opacity: 0;
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
+    .card {
+      background: #141414;
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      transition: transform 0.3s, border-color 0.3s;
+    }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #cda863;
+    }
 
-/* Responsive View (Mobile) */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column-reverse;
-    text-align: center;
-    justify-content: center;
-  }
-  .nav-links {
-    display: none; /* Mobile menu styling dynamically implementation */
-  }
-        }
-    </style>
+    .card h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card h4 {
+      color: #cda863;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    /* Personal Info List */
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      background: #141414;
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid #222;
+    }
+
+    .info-item h4 {
+      color: #888;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .info-item p {
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 0.85rem;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      nav ul {
+        display: none;
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .bio-pills {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<body class="selection:bg-indigo-500 selection:text-white">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-xl font-extrabold tracking-tighter text-white">NEXUS<span class="text-indigo-500">.</span></a>
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
-            <a href="#about" class="hover:text-white transition">About</a>
-            <a href="#projects" class="hover:text-white transition">Projects</a>
-            <a href="#contact" class="hover:text-white transition">Contact</a>
-        </div>
-        <a href="#contact" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-white text-black rounded-full hover:bg-indigo-500 hover:text-white transition duration-300">Let's Talk</a>
+  <!-- Navigation -->
+  <header>
+    <div class="logo">UTTOM CHANDRA ROY</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certifications</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
-        <div class="absolute w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <p class="hero-text text-indigo-400 font-semibold tracking-widest uppercase text-xs md:text-sm mb-4 opacity-0 translate-y-6">Cinematic Experience &bull; Developer & Designer</p>
-        <h1 class="hero-title text-5xl md:text-8xl font-extrabold tracking-tight max-w-5xl leading-none mb-6 opacity-0 translate-y-8">
-            Crafting Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500">Masterpieces</span>
-        </h1>
-        <p class="hero-desc text-gray-400 text-base md:text-xl max-w-2xl mb-8 opacity-0 translate-y-8">
-            A world-class digital portfolio built with precision, cinematic animation, and high-end design aesthetics.
-        </p>
-        <div class="hero-btn opacity-0 translate-y-8 flex gap-4">
-            <a href="#projects" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full transition duration-300 glow-effect">Explore Work</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="welcome-badge">Welcome to my Portfolio</span>
+      <h1>Hello, I'm <br><span>UTTOM CHANDRA ROY</span></h1>
+      <p>A university student passionate about computer science, technology, leadership, global affairs and connecting with people around the world.</p>
+      
+      <div class="bio-pills">
+        <span class="pill">💻 BSCS @ UoPeople USA 🇺🇸</span>
+        <span class="pill">🎓 BCA @ Assam Down Town University</span>
+        <span class="pill">🌐 International Student</span>
+      </div>
+    </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 px-6 md:px-20 max-w-7xl mx-auto">
-        <div class="mb-20">
-            <span class="text-indigo-400 text-xs font-bold tracking-widest uppercase">Featured Work</span>
-            <h2 class="text-4xl md:text-6xl font-extrabold mt-2">Selected Projects</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="project-card group relative bg-neutral-900/50 border border-white/10 rounded-3xl overflow-hidden p-8 hover:border-indigo-500/50 transition duration-500">
-                <div class="h-64 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl mb-6 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-indigo-500/10 group-hover:bg-transparent transition duration-500"></div>
-                </div>
-                <h3 class="text-2xl font-bold mb-2">Project Apex</h3>
-                <p class="text-gray-400 text-sm mb-6">Cinematic Web Experience & 3D Interactive Design.</p>
-                <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-400 group-hover:translate-x-2 transition duration-300">View Project &rarr;</a>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card group relative bg-neutral-900/50 border border-white/10 rounded-3xl overflow-hidden p-8 hover:border-indigo-500/50 transition duration-500">
-                <div class="h-64 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl mb-6 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-purple-500/10 group-hover:bg-transparent transition duration-500"></div>
-                </div>
-                <h3 class="text-2xl font-bold mb-2">Project Nebula</h3>
-                <p class="text-gray-400 text-sm mb-6">High-performance futuristic SaaS platform interface.</p>
-                <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-400 group-hover:translate-x-2 transition duration-300">View Project &rarr;</a>
-            </div>
-        </div>
-    </section>
+    <!-- Profile Image with Arch Frame -->
+    <div class="hero-image-wrapper">
+      <div class="arch-frame">
+        <img src="1000010061.jpg" alt="Uttom Chandra Roy">
+      </div>
+    </div>
+  </section>
 
-    <!-- GSAP Animation Script -->
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Hero Timeline
-        const tl = gsap.timeline({defaults: {ease: "power3.out"}});
-        tl.to(".hero-text", {opacity: 1, y: 0, duration: 1, delay: 0.2})
-          .to(".hero-title", {opacity: 1, y: 0, duration: 1}, "-=0.6")
-          .to(".hero-desc", {opacity: 1, y: 0, duration: 1}, "-=0.6")
-          .to(".hero-btn", {opacity: 1, y: 0, duration: 1}, "-=0.6");
+  <!-- Personal Information Section -->
+  <section id="about">
+    <h2 class="section-title">Personal Details</h2>
+    <div class="info-list">
+      <div class="info-item">
+        <h4>Nationality</h4>
+        <p>Bangladesh 🇧🇩</p>
+      </div>
+      <div class="info-item">
+        <h4>Date of Birth</h4>
+        <p>25/03/2005</p>
+      </div>
+      <div class="info-item">
+        <h4>Status</h4>
+        <p>International Student</p>
+      </div>
+    </div>
+  </section>
 
-        // Projects Scroll Animation
-        gsap.utils.toArray('.project-card').forEach(card => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                },
-                y: 60,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-        });
-    </script>
+  <!-- Academic Background -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="grid">
+      
+      <div class="card">
+        <h3>Assam Down Town University</h3>
+        <h4>BCA (Bachelor of Computer Applications)</h4>
+        <p>Guwahati, India | 2025 – 2028</p>
+      </div>
+
+      <div class="card">
+        <h3>University of the People</h3>
+        <h4>BSCS in Computer Science</h4>
+        <p>USA 🇺🇸 | Online Degree</p>
+      </div>
+
+      <div class="card">
+        <h3>Dania College</h3>
+        <h4>HSC – Humanities</h4>
+        <p>Dhaka, Bangladesh | Passed in 2023</p>
+      </div>
+
+      <div class="card">
+        <h3>Alokjhari High School</h3>
+        <h4>SSC – Science</h4>
+        <p>Passed in 2021</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certificates">
+    <h2 class="section-title">Certificates & Achievements</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Rotary Youth Leadership Award (RYLA) 2022</h3>
+        <h4>Rotary Club of Dhaka Mid-Town</h4>
+        <p>Successfully completed the Youth Leadership Award Program at Basecamp Kaliakoir, Gazipur.</p>
+      </div>
+
+      <div class="card">
+        <h3>Leading with Character</h3>
+        <h4>The Oxford Character Project & Harvard</h4>
+        <p>30-day leadership journey focused on building leadership vision, character, and influence.</p>
+      </div>
+
+      <div class="card">
+        <h3>Emotional Intelligence in Teamwork</h3>
+        <h4>University of the People</h4>
+        <p>Co-curricular achievement in strengthening workplace relationships & teamwork (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>AI Tools & Claude Workshop</h3>
+        <h4>be10x</h4>
+        <p>Hands-on training in AI tools for presentation design, data analysis, coding & debugging (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>Fundamentals of Cybersecurity I</h3>
+        <h4>Accenture (Learning to Earning)</h4>
+        <p>Comprehensive training course on core cybersecurity principles (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>Introduction to Computer Science</h3>
+        <h4>Cursa Platform</h4>
+        <p>Completed 17-hour foundational course in Computer Science (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>National Youth Parliament Scheme</h3>
+        <h4>Ministry of Parliamentary Affairs, India</h4>
+        <p>Participated in 'Bharatiya Democracy in Action' program (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>Leadership, Communication & Productivity</h3>
+        <h4>Amaador Academy</h4>
+        <p>Passed the knowledge exam in Leadership, Communication & Productivity (2026).</p>
+      </div>
+
+      <div class="card">
+        <h3>Viksit Bharat Young Leaders Dialogue (VBYLD)</h3>
+        <h4>Ministry of Youth Affairs & Sports (MYBharat)</h4>
+        <p>Certificate of Participation in national-level youth leadership dialogue (2026).</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Uttom Chandra Roy. All Rights Reserved.</p>
+  </footer>
+
 </body>
-</html>
+                                                      </html>
+                                                      
