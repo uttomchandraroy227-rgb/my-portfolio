@@ -1,314 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uttom Chandra Roy | Portfolio</title>
-
-<style>
-:root {
-  --gold: #d8b56a;
-  --black: #080807;
-  --white: #f5f0e4;
-  --muted: #aaa69a;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-}
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #0b0b09ee;
-  border-bottom: 1px solid #40351f;
-  padding: 16px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.logo { color: var(--gold); font-weight: bold; }
-nav { display: flex; flex-wrap: wrap; gap: 16px; }
-a { color: var(--gold); text-decoration: none; }
-nav a { color: var(--white); font-size: 13px; }
-nav a:hover { color: var(--gold); }
-section { padding: 65px 7%; }
-.hero {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.hero-text { flex: 1 1 280px; }
-.tag { color: var(--gold); letter-spacing: 3px; font-size: 12px; }
-h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(42px, 7vw, 75px);
-  line-height: 1.1;
-  margin: 20px 0;
-}
-h1 span, h2 { color: var(--gold); }
-p { color: var(--muted); margin-top: 12px; }
-.portrait {
-  width: min(290px, 75vw);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center top;
-  border: 3px solid var(--gold);
-  border-radius: 48% 48% 8px 8px;
-  box-shadow: 0 0 45px #d8b56a30;
-}
-.btn {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 12px 20px;
-  background: var(--gold);
-  color: #111;
-  font-weight: bold;
-  border-radius: 4px;
-}
-h2 { font-family: Georgia, serif; font-size: 34px; margin-bottom: 24px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-.card {
-  padding: 24px;
-  border: 1px solid #5b4826;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #19170f, #0d0d0b);
-  transition: transform .25s, border-color .25s;
-}
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--gold);
-}
-.card h3 { color: var(--white); margin-bottom: 10px; }
-.label {
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-footer {
-  text-align: center;
-  padding: 25px;
-  border-top: 1px solid #40351f;
-  color: var(--muted);
-}
-@media(max-width: 600px) {
-  header { justify-content: center; }
-  .hero { text-align: center; justify-content: center; }
-  .hero-text { flex-basis: 100%; }
-  section { padding: 48px 6%; }
-}
-/* Mobile responsive improvements */
-@media (max-width: 600px) {
-  .education-grid,
-  .interests-grid,
-  .projects-grid,
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  section {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-  }/* Smooth animation */
-.hero-text,
-.portrait {
-  animation: fadeUp 1s ease both;
-}
-
-.card {
-  animation: fadeUp 0.7s ease both;
-  transition: transform 0.3s ease,
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--gold);
-  box-shadow: 0 10px 25px #d8b56a25;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-  } /* Scroll animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease,
-              transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP and ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #f3f4f6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Syne', sans-serif; }
+        .glow-effect { box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.2); }
+    </style>
 </head>
+<body class="selection:bg-indigo-500 selection:text-white">
 
-<body>
-<header>
-  <div class="logo">UTTOM CHANDRA ROY</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#interests">Interests</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-extrabold tracking-tighter text-white">NEXUS<span class="text-indigo-500">.</span></a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="#about" class="hover:text-white transition">About</a>
+            <a href="#projects" class="hover:text-white transition">Projects</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
+        <a href="#contact" class="px-5 py-2 text-xs font-bold uppercase tracking-wider bg-white text-black rounded-full hover:bg-indigo-500 hover:text-white transition duration-300">Let's Talk</a>
+    </nav>
 
-<main>
-<section class="hero" id="home">
-  <div class="hero-text">
-    <div class="tag">STUDENT · GLOBAL THINKER</div>
-    <h1>Hello, I'm<br><span>Uttom Chandra Roy</span></h1>
-    <p>
-      A university student passionate about computer science,
-      technology, leadership, global affairs and connecting
-      with people around the world.
-    </p>
-    <a class="btn" href="#about">Discover My Journey ↗</a>
-  </div>
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="absolute w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <p class="hero-text text-indigo-400 font-semibold tracking-widest uppercase text-xs md:text-sm mb-4 opacity-0 translate-y-6">Cinematic Experience &bull; Developer & Designer</p>
+        <h1 class="hero-title text-5xl md:text-8xl font-extrabold tracking-tight max-w-5xl leading-none mb-6 opacity-0 translate-y-8">
+            Crafting Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500">Masterpieces</span>
+        </h1>
+        <p class="hero-desc text-gray-400 text-base md:text-xl max-w-2xl mb-8 opacity-0 translate-y-8">
+            A world-class digital portfolio built with precision, cinematic animation, and high-end design aesthetics.
+        </p>
+        <div class="hero-btn opacity-0 translate-y-8 flex gap-4">
+            <a href="#projects" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full transition duration-300 glow-effect">Explore Work</a>
+        </div>
+    </section>
 
-  <img class="portrait"
-       src="https://github.com/uttomchandraroy227-rgb.png"
-       alt="Uttom Chandra Roy"
-       onerror="this.style.display='none'">
-</section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 md:px-20 max-w-7xl mx-auto">
+        <div class="mb-20">
+            <span class="text-indigo-400 text-xs font-bold tracking-widest uppercase">Featured Work</span>
+            <h2 class="text-4xl md:text-6xl font-extrabold mt-2">Selected Projects</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card group relative bg-neutral-900/50 border border-white/10 rounded-3xl overflow-hidden p-8 hover:border-indigo-500/50 transition duration-500">
+                <div class="h-64 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl mb-6 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-indigo-500/10 group-hover:bg-transparent transition duration-500"></div>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Project Apex</h3>
+                <p class="text-gray-400 text-sm mb-6">Cinematic Web Experience & 3D Interactive Design.</p>
+                <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-400 group-hover:translate-x-2 transition duration-300">View Project &rarr;</a>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card group relative bg-neutral-900/50 border border-white/10 rounded-3xl overflow-hidden p-8 hover:border-indigo-500/50 transition duration-500">
+                <div class="h-64 bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl mb-6 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-purple-500/10 group-hover:bg-transparent transition duration-500"></div>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Project Nebula</h3>
+                <p class="text-gray-400 text-sm mb-6">High-performance futuristic SaaS platform interface.</p>
+                <a href="#" class="inline-flex items-center text-sm font-bold text-indigo-400 group-hover:translate-x-2 transition duration-300">View Project &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-  <h2>About Me.</h2>
-  <div class="card">
-    <h3>Learning. Growing. Connecting.</h3>
-    <p>
-      I am Uttom Chandra Roy, interested in computer science,
-      creative ideas, international collaboration and personal
-      development. I want to improve my skills and contribute
-      to a connected global community.
-    </p>
-  </div>
-</section>
+    <!-- GSAP Animation Script -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero Timeline
+        const tl = gsap.timeline({defaults: {ease: "power3.out"}});
+        tl.to(".hero-text", {opacity: 1, y: 0, duration: 1, delay: 0.2})
+          .to(".hero-title", {opacity: 1, y: 0, duration: 1}, "-=0.6")
+          .to(".hero-desc", {opacity: 1, y: 0, duration: 1}, "-=0.6")
+          .to(".hero-btn", {opacity: 1, y: 0, duration: 1}, "-=0.6");
 
-<section id="education">
-  <h2>Education.</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="label">Bachelor of Science · BSc</div>
-      <h3>Computer Science</h3>
-      <p>University of the People</p>
-      <p>United States of America (USA)</p>
-    </div>
-    <div class="card">
-      <div class="label">Bachelor of Computer Applications · BCA</div>
-      <h3>Computer Applications</h3>
-      <p>Assam down town University</p>
-      <p>Guwahati, Assam, India</p>
-    </div>
-  </div>
-</section>
-
-<section id="interests">
-  <h2>My Interests.</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>💻 Technology</h3>
-      <p>Computer science, digital tools and web development.</p>
-    </div>
-    <div class="card">
-      <h3>🌍 Global Affairs</h3>
-      <p>International relations, diplomacy and Model United Nations.</p>
-    </div>
-    <div class="card">
-      <h3>🤝 Networking</h3>
-      <p>Building meaningful connections and learning together.</p>
-    </div>
-    <div class="card">
-      <h3>🚀 Leadership</h3>
-      <p>Communication, teamwork and personal growth.</p>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects & Activities.</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="label">Project 01</div>
-      <h3>Personal Portfolio</h3>
-      <p>A personal website built with HTML and CSS.</p>
-      <a href="https://github.com/uttomchandraroy227-rgb/my-portfolio"
-         target="_blank">View GitHub ↗</a>
-    </div>
-    <div class="card">
-      <div class="label">Activity 02</div>
-      <h3>Model United Nations</h3>
-      <p>Participated in UMUN 2026 as the Belarus delegate in ECOSOC.</p>
-    </div>
-    <div class="card">
-      <div class="label">Journey 03</div>
-      <h3>Continuous Learning</h3>
-      <p>Developing knowledge, communication and digital skills.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Let's Connect.</h2>
-  <div class="card">
-    <h3>Build connections. Share ideas.</h3>
-    <p>Visit my GitHub profile to explore my work and learning journey.</p>
-    <a class="btn"
-       href="https://github.com/uttomchandraroy227-rgb"
-       target="_blank">My GitHub ↗</a>
-  </div>
-</section>
-</main>
-
-<footer>
-  © 2026 Uttom Chandra Roy · Built with curiosity.
-</footer>
-
+        // Projects Scroll Animation
+        gsap.utils.toArray('.project-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+    </script>
 </body>
 </html>
