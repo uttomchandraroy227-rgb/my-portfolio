@@ -1,43 +1,242 @@
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uttom Chandra Roy | Portfolio</title>
 
-.education-card {
-  padding: 25px;
-  border: 1px solid rgba(216, 181, 106, 0.35);
-  background: linear-gradient(145deg, #17150f, #0d0d0b);
-  transition: transform 0.25s, border-color 0.25s;
+<style>
+:root {
+  --gold: #d8b56a;
+  --black: #080807;
+  --white: #f5f0e4;
+  --muted: #aaa69a;
 }
-
-.education-card:hover {
-  transform: translateY(-5px);
-  border-color: #f4dfaa;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
 }
-
-.education-card h3 {
-  color: #f4dfaa;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0b0b09ee;
+  border-bottom: 1px solid #40351f;
+  padding: 16px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.logo { color: var(--gold); font-weight: bold; }
+nav { display: flex; flex-wrap: wrap; gap: 16px; }
+a { color: var(--gold); text-decoration: none; }
+nav a { color: var(--white); font-size: 13px; }
+nav a:hover { color: var(--gold); }
+section { padding: 65px 7%; }
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-text { flex: 1 1 280px; }
+.tag { color: var(--gold); letter-spacing: 3px; font-size: 12px; }
+h1 {
   font-family: Georgia, serif;
-  font-size: 23px;
-  margin: 12px 0;
+  font-size: clamp(42px, 7vw, 75px);
+  line-height: 1.1;
+  margin: 20px 0;
 }
-
-.education-card p {
-  color: #aaa69a;
-  font-size: 13px;
-  margin-top: 8px;
+h1 span, h2 { color: var(--gold); }
+p { color: var(--muted); margin-top: 12px; }
+.portrait {
+  width: min(290px, 75vw);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--gold);
+  border-radius: 48% 48% 8px 8px;
+  box-shadow: 0 0 45px #d8b56a30;
 }
-
-.education-card .degree {
-  color: #d8b56a;
-  font-size: 11px;
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 20px;
+  background: var(--gold);
+  color: #111;
+  font-weight: bold;
+  border-radius: 4px;
+}
+h2 { font-family: Georgia, serif; font-size: 34px; margin-bottom: 24px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+.card {
+  padding: 24px;
+  border: 1px solid #5b4826;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #19170f, #0d0d0b);
+  transition: transform .25s, border-color .25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+.card h3 { color: var(--white); margin-bottom: 10px; }
+.label {
+  color: var(--gold);
+  font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
-@media (max-width: 650px) {
-  .education-grid {
-    grid-template-columns: 1fr;
-  }
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #40351f;
+  color: var(--muted);
 }
+@media(max-width: 600px) {
+  header { justify-content: center; }
+  .hero { text-align: center; justify-content: center; }
+  .hero-text { flex-basis: 100%; }
+  section { padding: 48px 6%; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">UTTOM CHANDRA ROY</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#interests">Interests</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="tag">STUDENT · GLOBAL THINKER</div>
+    <h1>Hello, I'm<br><span>Uttom Chandra Roy</span></h1>
+    <p>
+      A university student passionate about computer science,
+      technology, leadership, global affairs and connecting
+      with people around the world.
+    </p>
+    <a class="btn" href="#about">Discover My Journey ↗</a>
+  </div>
+
+  <img class="portrait"
+       src="https://github.com/uttomchandraroy227-rgb.png"
+       alt="Uttom Chandra Roy"
+       onerror="this.style.display='none'">
+</section>
+
+<section id="about">
+  <h2>About Me.</h2>
+  <div class="card">
+    <h3>Learning. Growing. Connecting.</h3>
+    <p>
+      I am Uttom Chandra Roy, interested in computer science,
+      creative ideas, international collaboration and personal
+      development. I want to improve my skills and contribute
+      to a connected global community.
+    </p>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education.</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="label">Bachelor of Science · BSc</div>
+      <h3>Computer Science</h3>
+      <p>University of the People</p>
+      <p>United States of America (USA)</p>
+    </div>
+    <div class="card">
+      <div class="label">Bachelor of Computer Applications · BCA</div>
+      <h3>Computer Applications</h3>
+      <p>Assam down town University</p>
+      <p>Guwahati, Assam, India</p>
+    </div>
+  </div>
+</section>
+
+<section id="interests">
+  <h2>My Interests.</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>💻 Technology</h3>
+      <p>Computer science, digital tools and web development.</p>
+    </div>
+    <div class="card">
+      <h3>🌍 Global Affairs</h3>
+      <p>International relations, diplomacy and Model United Nations.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 Networking</h3>
+      <p>Building meaningful connections and learning together.</p>
+    </div>
+    <div class="card">
+      <h3>🚀 Leadership</h3>
+      <p>Communication, teamwork and personal growth.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects & Activities.</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="label">Project 01</div>
+      <h3>Personal Portfolio</h3>
+      <p>A personal website built with HTML and CSS.</p>
+      <a href="https://github.com/uttomchandraroy227-rgb/my-portfolio"
+         target="_blank">View GitHub ↗</a>
+    </div>
+    <div class="card">
+      <div class="label">Activity 02</div>
+      <h3>Model United Nations</h3>
+      <p>Participated in UMUN 2026 as the Belarus delegate in ECOSOC.</p>
+    </div>
+    <div class="card">
+      <div class="label">Journey 03</div>
+      <h3>Continuous Learning</h3>
+      <p>Developing knowledge, communication and digital skills.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Let's Connect.</h2>
+  <div class="card">
+    <h3>Build connections. Share ideas.</h3>
+    <p>Visit my GitHub profile to explore my work and learning journey.</p>
+    <a class="btn"
+       href="https://github.com/uttomchandraroy227-rgb"
+       target="_blank">My GitHub ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  © 2026 Uttom Chandra Roy · Built with curiosity.
+</footer>
+
+</body>
+</html>
