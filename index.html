@@ -1,402 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uttom Chandra Roy - Personal Portfolio</title>
-  <style>
-    /* Global Reset & Colors */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+<section id="skills-section" style="background: #111; padding: 40px; color: #f4f4f4; font-family: sans-serif;">
+    <h2 style="color: #d4af37; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">Technical Skills & Code Snippets</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+        
+        <!-- C++ Card -->
+        <div style="background: #1a1a1a; border: 1px solid #d4af37; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #d4af37;">C++</h3>
+            <pre style="background: #000; padding: 10px; border-radius: 5px; color: #00ff00; overflow-x: auto;"><code>#include &lt;iostream&gt;
+using namespace std;
 
-    body {
-      background-color: #0b0b0b;
-      color: #e0e0e0;
-      line-height: 1.6;
-      padding: 0 5%;
-      overflow-x: hidden;
-    }
+int main() {
+    cout << "Hello, Uttam!" << endl;
+    return 0;
+}</code></pre>
+        </div>
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        <!-- Python Card -->
+        <div style="background: #1a1a1a; border: 1px solid #d4af37; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #d4af37;">Python</h3>
+            <pre style="background: #000; padding: 10px; border-radius: 5px; color: #00ff00; overflow-x: auto;"><code>def greet_portfolio(name):
+    print(f"Welcome to {name}'s Portfolio!")
 
-    /* Navigation Bar */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 0;
-      border-bottom: 1px solid #222;
-    }
+greet_portfolio("Uttam")</code></pre>
+        </div>
 
-    .logo {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #cda863;
-    }
+        <!-- JavaScript Card -->
+        <div style="background: #1a1a1a; border: 1px solid #d4af37; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #d4af37;">JavaScript</h3>
+            <pre style="background: #000; padding: 10px; border-radius: 5px; color: #00ff00; overflow-x: auto;"><code>const showMessage = () => {
+    console.log("Interactive Portfolio Active");
+};
+showMessage();</code></pre>
+        </div>
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
+        <!-- MySQL Card -->
+        <div style="background: #1a1a1a; border: 1px solid #d4af37; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #d4af37;">MySQL</h3>
+            <pre style="background: #000; padding: 10px; border-radius: 5px; color: #00ff00; overflow-x: auto;"><code>SELECT * FROM projects 
+WHERE developer = 'Uttam' 
+ORDER BY id DESC;</code></pre>
+        </div>
 
-    nav a {
-      font-size: 0.85rem;
-      color: #a0a0a0;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #cda863;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 70px 0;
-      min-height: 80vh;
-      gap: 40px;
-    }
-
-    .hero-text {
-      max-width: 600px;
-    }
-
-    .welcome-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(205, 168, 99, 0.1);
-      border: 1px solid #cda863;
-      border-radius: 20px;
-      color: #cda863;
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      color: #ffffff;
-      margin-bottom: 20px;
-      line-height: 1.15;
-    }
-
-    .hero-text h1 span {
-      color: #cda863;
-    }
-
-    .hero-text p {
-      font-size: 0.95rem;
-      color: #b0b0b0;
-      margin-bottom: 25px;
-      font-style: italic;
-    }
-
-    .bio-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .pill {
-      background: #141414;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      border: 1px solid #333;
-      color: #ccc;
-    }
-
-    /* Arch Image Frame */
-    .hero-image-wrapper {
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .arch-frame {
-      width: 280px;
-      height: 380px;
-      border-top-left-radius: 140px;
-      border-top-right-radius: 140px;
-      overflow: hidden;
-      border: 1.5px solid #cda863;
-      box-shadow: 0 0 25px rgba(205, 168, 99, 0.2);
-    }
-
-    .arch-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 60px 0;
-      border-top: 1px solid #1a1a1a;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      color: #cda863;
-      margin-bottom: 30px;
-    }
-
-    /* Grid Layouts */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #141414;
-      padding: 25px;
-      border-radius: 8px;
-      border: 1px solid #222;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #cda863;
-    }
-
-    .card h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .card h4 {
-      color: #cda863;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #999;
-      font-size: 0.85rem;
-    }
-
-    /* Personal Info List */
-    .info-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      background: #141414;
-      padding: 25px;
-      border-radius: 8px;
-      border: 1px solid #222;
-    }
-
-    .info-item h4 {
-      color: #888;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-      letter-spacing: 1px;
-    }
-
-    .info-item p {
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: #666;
-      font-size: 0.85rem;
-      border-top: 1px solid #1a1a1a;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      nav ul {
-        display: none;
-      }
-      .hero-text h1 {
-        font-size: 2.3rem;
-      }
-      .bio-pills {
-        justify-content: center;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navigation -->
-  <header>
-    <div class="logo">UTTOM CHANDRA ROY</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certificates">Certifications</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <span class="welcome-badge">Welcome to my Portfolio</span>
-      <h1>Hello, I'm <br><span>UTTOM CHANDRA ROY</span></h1>
-      <p>A university student passionate about computer science, technology, leadership, global affairs and connecting with people around the world.</p>
+    </div>
+    </section>
       
-      <div class="bio-pills">
-        <span class="pill">💻 BSCS @ UoPeople USA 🇺🇸</span>
-        <span class="pill">🎓 BCA @ Assam Down Town University</span>
-        <span class="pill">🌐 International Student</span>
-      </div>
-    </div>
-
-    <!-- Profile Image with Arch Frame -->
-    <div class="hero-image-wrapper">
-      <div class="arch-frame">
-        <img src="1000010061.jpg" alt="Uttom Chandra Roy">
-      </div>
-    </div>
-  </section>
-
-  <!-- Personal Information Section -->
-  <section id="about">
-    <h2 class="section-title">Personal Details</h2>
-    <div class="info-list">
-      <div class="info-item">
-        <h4>Nationality</h4>
-        <p>Bangladesh 🇧🇩</p>
-      </div>
-      <div class="info-item">
-        <h4>Date of Birth</h4>
-        <p>25/03/2005</p>
-      </div>
-      <div class="info-item">
-        <h4>Status</h4>
-        <p>International Student</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Academic Background -->
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="grid">
-      
-      <div class="card">
-        <h3>Assam Down Town University</h3>
-        <h4>BCA (Bachelor of Computer Applications)</h4>
-        <p>Guwahati, India | 2025 – 2028</p>
-      </div>
-
-      <div class="card">
-        <h3>University of the People</h3>
-        <h4>BSCS in Computer Science</h4>
-        <p>USA 🇺🇸 | Online Degree</p>
-      </div>
-
-      <div class="card">
-        <h3>Dania College</h3>
-        <h4>HSC – Humanities</h4>
-        <p>Dhaka, Bangladesh | Passed in 2023</p>
-      </div>
-
-      <div class="card">
-        <h3>Alokjhari High School</h3>
-        <h4>SSC – Science</h4>
-        <p>Passed in 2021</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certificates">
-    <h2 class="section-title">Certificates & Achievements</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>Rotary Youth Leadership Award (RYLA) 2022</h3>
-        <h4>Rotary Club of Dhaka Mid-Town</h4>
-        <p>Successfully completed the Youth Leadership Award Program at Basecamp Kaliakoir, Gazipur.</p>
-      </div>
-
-      <div class="card">
-        <h3>Leading with Character</h3>
-        <h4>The Oxford Character Project & Harvard</h4>
-        <p>30-day leadership journey focused on building leadership vision, character, and influence.</p>
-      </div>
-
-      <div class="card">
-        <h3>Emotional Intelligence in Teamwork</h3>
-        <h4>University of the People</h4>
-        <p>Co-curricular achievement in strengthening workplace relationships & teamwork (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>AI Tools & Claude Workshop</h3>
-        <h4>be10x</h4>
-        <p>Hands-on training in AI tools for presentation design, data analysis, coding & debugging (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>Fundamentals of Cybersecurity I</h3>
-        <h4>Accenture (Learning to Earning)</h4>
-        <p>Comprehensive training course on core cybersecurity principles (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>Introduction to Computer Science</h3>
-        <h4>Cursa Platform</h4>
-        <p>Completed 17-hour foundational course in Computer Science (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>National Youth Parliament Scheme</h3>
-        <h4>Ministry of Parliamentary Affairs, India</h4>
-        <p>Participated in 'Bharatiya Democracy in Action' program (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>Leadership, Communication & Productivity</h3>
-        <h4>Amaador Academy</h4>
-        <p>Passed the knowledge exam in Leadership, Communication & Productivity (2026).</p>
-      </div>
-
-      <div class="card">
-        <h3>Viksit Bharat Young Leaders Dialogue (VBYLD)</h3>
-        <h4>Ministry of Youth Affairs & Sports (MYBharat)</h4>
-        <p>Certificate of Participation in national-level youth leadership dialogue (2026).</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Uttom Chandra Roy. All Rights Reserved.</p>
-  </footer>
-
-</body>
-                                                      </html>
-                                                      
